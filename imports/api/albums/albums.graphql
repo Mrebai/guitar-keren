@@ -1,0 +1,33 @@
+type album {
+    _id: ID
+    date: String
+    title: String
+    info: String
+    thumbnail: String
+    images: [String]
+}
+
+extend type Query {
+    getAlbums:[album]
+}
+
+extend type Mutation {
+    addAlbum(
+        title: String!
+        info: String!
+        thumbnail: String!
+        images: [String]!
+    ): album
+
+    editAlbum(
+        _id: String!
+        title: String!
+        info: String!
+        thumbnail: String!
+        images: [String]!
+    ): album
+
+    deleteAlbum(
+        _id: String!
+    ): album
+}

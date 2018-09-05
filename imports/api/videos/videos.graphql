@@ -1,0 +1,30 @@
+type video {
+    _id: ID
+    date: String
+    title: String
+    info: String
+    video: String
+}
+
+extend type Query {
+    getVideos:[video]
+}
+
+extend type Mutation {
+    addVideo(
+        title: String!
+        info: String!
+        video: String!
+    ): video
+
+    editVideo(
+        _id: String!
+        title: String!
+        info: String!
+        video: String!
+    ): video
+
+    deleteVideo(
+        _id: String!
+    ): video
+}

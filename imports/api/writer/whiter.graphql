@@ -1,0 +1,32 @@
+extend type Query {
+    Writer(id: ID!): Writer
+    allWriters(page: Int, perPage: Int, sortField: String, sortOrder: String, filter: String): [Writer]
+    _allWritersMeta(page: Int, perPage: Int, sortField: String, sortOrder: String, filter: String): ListMetadata
+}
+extend type Mutation {
+    createWriter(name: String, age:Int, rank: String,email:String): Writer
+    updateWriter(id: ID,name: String, age:Int, rank: String,email:String): Writer
+    deleteWriter(id: ID!): Writer
+}
+type Writer {
+    id: ID
+    name: String
+    age:Int
+    rank: String
+    email:String
+}
+type WriterFilter {
+    q: String
+    id: ID
+    name: String
+    age:Int
+    rank: String
+    email:String
+    age_lt: Int
+    age_lte: Int
+    age_gt: Int
+    age_gte: Int
+}
+type WritherMetadata {
+    count: Int
+}

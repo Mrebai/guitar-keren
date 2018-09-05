@@ -1,0 +1,38 @@
+type streaming {
+    _id: ID
+    date: String
+    title: String
+    info: String
+    link: String
+    live:Boolean
+}
+
+extend type Query {
+    getStreaming:[streaming]
+}
+
+extend type Mutation {
+    addStreaming(
+        title: String!
+        info: String!
+        link: String!
+        live:Boolean
+    ): streaming
+
+    editStreaming(
+        _id: String!
+        title: String!
+        info: String!
+        link: String!
+
+    ): streaming
+
+    toggleLive(
+        _id: String!
+        live:Boolean
+    ): streaming
+
+    deleteStreaming(
+        _id: String!
+    ): streaming
+}
