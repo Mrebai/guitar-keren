@@ -1,0 +1,39 @@
+extend type Query {
+    Guitar(id: ID!): Guitar
+    allGuitars(page: Int, perPage: Int, sortField: String, sortOrder: String, filter: String): [Guitar]
+    _allGuitarsMeta(page: Int, perPage: Int, sortField: String, sortOrder: String, filter: String): ListMetadata
+}
+extend type Mutation {
+    createGuitar(name: String,brand:String,brand_id:ID,descritopn:String, price:Float, oldPrice:Float,
+    unitsSold:Int,comments:[comment]): Guitar
+    updateGuitar(id: ID,name: String,brand:String,brand_id:ID,descritopn:String, price:Float, oldPrice:Float,
+    unitsSold:Int,comments:[comment]): Guitar
+    deleteGuitar(id: ID!): Guitar
+}
+type Guitar {
+    id: ID
+    name: String
+    brand:String
+    brand_id:ID
+    descritopn:String 
+    price:Float
+    oldPrice:Float
+    unitsSold:Int
+    comments:[comment]
+    inStock:Boolean
+}
+type GuitarFilter {
+    q: String
+    id: ID
+    title: String
+    views: Int
+    views_lt: Int
+    views_lte: Int
+    views_gt: Int
+    views_gte: Int
+    writer_id: ID
+}
+type ListMetadata {
+    count: Int
+}
+scalar Date

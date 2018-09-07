@@ -63,7 +63,6 @@ import SignUp from '../signUp/SignUp'
                     </div>
                     <div className="col col-md-6">
                         <SignUp/>
-
                     </div>
                 </div>
             </div>
